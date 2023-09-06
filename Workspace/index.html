@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workspace</title>
     <link rel="stylesheet" href="style/normalize.css">
-    <link rel="stylesheet" href="style/style.css">
+    <!-- <link rel="stylesheet" href="style/style.css"> -->
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
@@ -24,7 +25,9 @@
         </section>
         <div class="vacancies" id="vacancies">
             <div class="container vacancies__container">
+                <button class="vacancies__filter-btn">Фильтр</button>
                 <section class="vacancies__filter filter">
+
                     <h2 class="filter__title">Фильтр</h2>
                     <form class="filter__form">
                         <fieldset class="filter__fieldset">
@@ -48,35 +51,57 @@
                         <div class="filter__checkboxes">
                             <fieldset class="filter__fieldset">
                                 <legend class="filter__legend">Формат</legend>
-
                                 <label for="" class="filter__label checkbox">
                                     <input class="checkbox__input" type="checkbox" name="format" value="Офис">Офис
+                                </label>
+                                <label class="filter__label checkbox">
                                     <input class="checkbox__input" type="checkbox" name="format"
                                         value="Удаленный">Удаленный
+                                </label>
+                                <label class="filter__label checkbox">
                                     <input class="checkbox__input" type="checkbox" name="format" value="Гибкий">Гибкий
                                 </label>
-
                             </fieldset>
 
                             <fieldset class="filter__fieldset">
                                 <legend class="filter__legend">Опыт работы</legend>
-                                <input class="checkbox__input" type="checkbox" name="experience" value="Не важно">Не
-                                важно
-                                <input class="checkbox__input" type="checkbox" name="experience" value="Без опыта">Без
-                                опыта
-                                <input class="checkbox__input" type="checkbox" name="experience"
-                                    value="От 1 года до 3-х лет">От 1 года до 3-х лет
-                                <input class="checkbox__input" type="checkbox" name="experience" value="От 3-х лет">От
-                                3-х лет
+                                <label class="filter__label checkbox">
+                                    <input class="checkbox__input" type="checkbox" name="experience" value="Не важно">Не
+                                    важно
+                                </label>
+                                <label class="filter__label checkbox">
+                                    <input class="checkbox__input" type="checkbox" name="experience"
+                                        value="Без опыта">Без
+                                    опыта
+                                </label>
+                                <label class="filter__label checkbox">
+                                    <input class="checkbox__input" type="checkbox" name="experience"
+                                        value="От 1 года до 3-х лет">От 1 года до 3-х лет
+                                </label>
+                                <label class="filter__label checkbox">
+                                    <input class="checkbox__input" type="checkbox" name="experience"
+                                        value="От 3-х лет">От
+                                    3-х лет
+                                </label>
                             </fieldset>
 
                             <fieldset class="filter__fieldset">
                                 <legend class="filter__legend">Занятость</legend>
-                                <input class="checkbox__input" type="checkbox" name="type" value="Полная">Полная
-                                <input class="checkbox__input" type="checkbox" name="type" value="Частичная">Частичная
-                                <input class="checkbox__input" type="checkbox" name="type" value="Стажировка">Стажировка
-                                <input class="checkbox__input" type="checkbox" name="type"
-                                    value="Проектная работа">Проектная работа
+                                <label class="filter__label checkbox">
+                                    <input class="checkbox__input" type="checkbox" name="type" value="Полная">Полная
+                                </label>
+                                <label class="filter__label checkbox">
+                                    <input class="checkbox__input" type="checkbox" name="type"
+                                        value="Частичная">Частичная
+                                </label>
+                                <label class="filter__label checkbox">
+                                    <input class="checkbox__input" type="checkbox" name="type"
+                                        value="Стажировка">Стажировка
+                                </label>
+                                <label class="filter__label checkbox">
+                                    <input class="checkbox__input" type="checkbox" name="type"
+                                        value="Проектная работа">Проектная работа
+                                </label>
                             </fieldset>
                         </div>
 
@@ -101,6 +126,21 @@
                                     <li class="vacancy__field">полная занятость</li>
                                     <li class="vacancy__field">офис</li>
                                     <li class="vacancy__field">опыт от 3-х лет</li>
+
+                                </ul>
+                            </article>
+                        </li>
+
+                        <li class="cards__item">
+                            <article class="vacancy" tabindex="0">
+                                <img src="img/yadro.svg" alt="Логотип компании Yadro" class="header__logo">
+                                <p class="vacancy__company">ВкусВилл</p>
+                                <h3 class="vacancy__title">Повар-кондитер</h3>
+                                <ul class="vacancy__fields">
+                                    <li class="vacancy__field">от 50 000₽</li>
+                                    <li class="vacancy__field">частичная занятость</li>
+                                    <li class="vacancy__field">офис</li>
+                                    <li class="vacancy__field">опыт не важен</li>
 
                                 </ul>
                             </article>
