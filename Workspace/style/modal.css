@@ -6,12 +6,12 @@
     cursor: pointer;
     padding: 30px;
     overflow-y: auto;
-    display: none;
-}
-
-.modal_open {
     display: flex;
 }
+
+/* .modal_open {
+    display: flex;
+} */
 
 .modal__main {
     position: relative;
