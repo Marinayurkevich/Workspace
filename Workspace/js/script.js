@@ -2,7 +2,6 @@ const API_URL = "https://workspace-methed.vercel.app/";
 const LOCATION_URL = "api/locations";
 const VACANCY_URL = "api/vacancy";
 
-const cardsList = document.querySelector('.cards__list');
 
 const getData = async (url, cbSuccess, cbError) => {
     try {
@@ -13,23 +12,6 @@ const getData = async (url, cbSuccess, cbError) => {
         cbError(err)
     }
 }
-
-
-
-// {
-//     "id": "lkxsnh8av9pk5a",
-//     "title": "Графический дизайнер",
-//     "company": "Creative People",
-//     "description": "Привет. Мы в CreativePeople ищем middle графического дизайнера в свою дизайн команду. Удаленно, из любой точки нашей страны, где у вас будет хороший интернет. Опыт работы в разработке логотипов, фирменных стилей обязателен.\nУ нас в портфолио много крупных российских компаний, с некоторыми мы работаем уже много лет и делаем самые разные проекты, от сайтов до мобильных приложений.",
-//     "email": "CreativePeople@gmail.com",
-//     "salary": "110000",
-//     "type": "проектная работа",
-//     "format": "гибкий",
-//     "experience": "от 1 года до 3-х лет",
-//     "location": "Москва",
-//     "logo": "img/lkxsnh8av9pk5a.png"
-// },
-
 
 
 const createCard = (vacancy) => `
@@ -48,7 +30,7 @@ const createCard = (vacancy) => `
 
 
 
-const createCards = (data) => 
+const createCards = (data) =>
     data.vacancies.map(vacancy => {
         const li = document.createElement('li');
         li.classList.add('cards__item');
@@ -57,7 +39,7 @@ const createCards = (data) =>
     });
 
 
-const renderVacancy = (data) => {
+const renderVacancy = (data, cardsList) => {
     // когда вызывается ф-ция, список очищается
     cardsList.textContent = "";
     const cards = createCards(data);
@@ -69,6 +51,7 @@ const renderError = (err) => {
 }
 
 const init = () => {
+    const cardsList = document.querySelector('.cards__list');
     // select city
     const citySelect = document.querySelector('#city');
     const cityChoices = new Choices(citySelect, {
@@ -94,7 +77,7 @@ const init = () => {
 
     // cards
     const url = new URL(`${API_URL}${VACANCY_URL}`);
-    getData(url, renderVacancy, renderError);
+    getData(url, (data) => { renderVacancy(data, cardsList); }, renderError);
 }
 
 init();
