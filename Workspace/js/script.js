@@ -50,6 +50,16 @@ const renderError = (err) => {
     // console.warn(err);
 }
 
+
+const renderModal = (data) => {
+    console.log(data);
+}
+
+const openModal = (id) => {
+    console.log(id);
+    getData(`${API_URL}${VACANCY_URL}/${id}`, renderModal, renderError);
+}
+
 const init = () => {
     const cardsList = document.querySelector('.cards__list');
     // select city
@@ -78,6 +88,19 @@ const init = () => {
     // cards
     const url = new URL(`${API_URL}${VACANCY_URL}`);
     getData(url, (data) => { renderVacancy(data, cardsList); }, renderError);
+
+    // cardsList.addEventListener('click', (event) => {
+    //     console.log(event);
+    // })
+
+    cardsList.addEventListener('click', ({ target }) => {
+        const vacancyCard = target.closest('.vacancy');
+        console.log(vacancyCard);
+        if (vacancyCard) {
+            const vacancyId = vacancyCard.dataset.id;
+            openModal(vacancyId);
+        }
+    })
 }
 
 init();
@@ -92,5 +115,3 @@ init();
 //     .catch((err) => {
 //         console.log(err)
 //     })
-
-
