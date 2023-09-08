@@ -50,7 +50,7 @@ const renderError = (err) => {
     console.warn(err);
 }
 
-const createDetailVacancy = ({id,
+const createDetailVacancy = ({ id,
     title,
     company,
     description,
@@ -60,7 +60,7 @@ const createDetailVacancy = ({id,
     format,
     experience,
     location,
-    logo}) =>`
+    logo }) => `
 <article class="detail">
     <div class="detail__header">
         <img src="${API_URL}${logo}" alt="Логотип компании ${company}" class="detail__logo">
@@ -89,19 +89,19 @@ const createDetailVacancy = ({id,
 
 
 
-    // {
-    //     "id": "lkxvy7cwy0vt0e",
-    //     "title": "Работник склада/комплектовщик",
-    //     "company": "Лента",
-    //     "description": " Ваши задачи будет входить:\nподбор заказов (работа на складе)\nработа с использованием терминала сбора данных\nработа на погрузочной технике\nОт Вас ожидаем:\nЖелание работать и зарабатывать вместе с ЛЕНТОЙ!\nМы приглашаем кандидатов без опыта работы - всему научим!",
-    //     "email": "info@lenta.ru",
-    //     "salary": "60000",
-    //     "type": "полная занятость",
-    //     "format": "офис",
-    //     "experience": "без опыта",
-    //     "location": "Москва",
-    //     "logo": "img/lkxvy7cwy0vt0e.png"
-    // }
+// {
+//     "id": "lkxvy7cwy0vt0e",
+//     "title": "Работник склада/комплектовщик",
+//     "company": "Лента",
+//     "description": " Ваши задачи будет входить:\nподбор заказов (работа на складе)\nработа с использованием терминала сбора данных\nработа на погрузочной технике\nОт Вас ожидаем:\nЖелание работать и зарабатывать вместе с ЛЕНТОЙ!\nМы приглашаем кандидатов без опыта работы - всему научим!",
+//     "email": "info@lenta.ru",
+//     "salary": "60000",
+//     "type": "полная занятость",
+//     "format": "офис",
+//     "experience": "без опыта",
+//     "location": "Москва",
+//     "logo": "img/lkxvy7cwy0vt0e.png"
+// }
 
 
 
@@ -115,8 +115,6 @@ const renderModal = (data) => {
     const modalMain = document.createElement('div');
     modalMain.classList.add('modal__main');
     modalMain.innerHTML = createDetailVacancy(data);
-    modal.append(modalMain);
-    document.body.append(modal);
     const modalClose = document.createElement('button');
     modalClose.classList.add('modal__close');
     modalClose.innerHTML = `
@@ -129,7 +127,15 @@ const renderModal = (data) => {
                 </svg>
     `
     modalMain.append(modalClose);
+    modal.append(modalMain);
+    document.body.append(modal);
 
+    // закрытие модального окна
+    modal.addEventListener('click', ({ target }) => {
+        if (target === modal || target.closest('.modal__close')) {
+            modal.remove();
+        }
+    })
 
 }
 
